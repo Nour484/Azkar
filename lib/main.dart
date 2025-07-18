@@ -1,24 +1,18 @@
 import 'package:azkar/screen/home_screen.dart';
 import 'package:azkar/theme.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
 import 'provider/mode_provider.dart';
-import 'provider/timer_provider.dart';
 
 void main() {
-  runApp(DevicePreview(
-      enabled: true,
-      builder: (context) => MultiProvider(
-            providers: [
-              ChangeNotifierProvider(
-                  create: (context) => modeProvider()..getTheme()),
-              ChangeNotifierProvider(create: (context) => TimerProvider()),
-            ],
-            child: MyApp(),
-          )));
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => modeProvider()..getTheme()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -27,20 +21,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      // builder: DevicePreview.appBuilder,
-      themeAnimationStyle: AnimationStyle(
+      themeAnimationStyle: const AnimationStyle(
           duration: Duration(milliseconds: 450), curve: Curves.easeInQuad),
       debugShowCheckedModeBanner: false,
-      title: 'PomodoroApp',
+      title: 'Azkar',
       theme: Provider.of<modeProvider>(context).lightModeEnable
           ? ModeTheme.lightMode
           : ModeTheme.darkMode,
-
-      // darkTheme: ModeTheme.darkMode,
-      // home: TimerWidget(Provider.of<modeProvider>(context).lightModeEnable),
-      // home: ReadJsonFile(Provider.of<modeProvider>(context).lightModeEnable));
       home: HomeScreen(Provider.of<modeProvider>(context).lightModeEnable),
     );
   }
