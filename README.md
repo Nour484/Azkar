@@ -1,0 +1,5 @@
+# azkar
+
+![SharedScriiieenshot](https://github.com/Nour484/Azkar/assets/76661529/f466b04c-5ffc-4e70-94a4-007e9ea80c8a)
+![SharedkkScreenshot](https://github.com/Nour484/Azkar/assets/76661529/9a120b81-1774-4e58-9877-b5ba67495c8a)
+![SharedScreenshot](https://github.com/Nour484/Azkar/assets/76661529/d61d2a51-fdb7-4b99-958b-49ca7f7b77f6)
